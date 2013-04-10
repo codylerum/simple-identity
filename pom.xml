@@ -4,7 +4,11 @@
 	<groupId>com.outjected</groupId>
 	<artifactId>simple-identity</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.enterprise</groupId>
