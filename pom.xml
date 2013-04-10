@@ -5,6 +5,29 @@
 	<artifactId>simple-identity</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
+	<description>A very simple Identity Implemenation for use with Apache DeltaSpikes Access Voter pattern</description>
+	<url>https://github.com/codylerum/simple-identity</url>
+	
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>http://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+	
+	<scm>
+		<url>https://github.com/codylerum/simple-identity</url>
+		<connection>https://github.com/codylerum/simple-identity.git</connection>
+	</scm>
+	
+	<developers>
+		<developer>
+			<id>codylerum</id>
+			<name>Cody Lerum</name>
+			<email>cody.lerum@gmail.com</email>
+		</developer>
+	</developers>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
