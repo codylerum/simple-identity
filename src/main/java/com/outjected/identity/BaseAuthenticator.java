@@ -9,7 +9,7 @@ public abstract class BaseAuthenticator {
         return status;
     }
 
-    public void setStatus(AuthenticationStatus status) {
+    protected void setStatus(AuthenticationStatus status) {
         this.status = status;
     }
 
@@ -17,7 +17,7 @@ public abstract class BaseAuthenticator {
         return user;
     }
 
-    public void setUser(IdentityUser user) {
+    protected void setUser(IdentityUser user) {
         this.user = user;
     }
 }
