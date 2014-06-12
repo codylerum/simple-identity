@@ -7,4 +7,6 @@ package com.outjected.identity;
  */
 public interface IdentityUser {
 
+  String getUsername();
+
 }
