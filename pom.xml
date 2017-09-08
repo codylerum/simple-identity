@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.outjected</groupId>
 	<artifactId>simple-identity</artifactId>
-	<version>0.1.3</version>
+	<version>0.1.4-SNAPSHOT</version>
 
 	<description>A very simple Identity Implementation for use with Apache DeltaSpikes Access Voter pattern</description>
 	<url>https://github.com/codylerum/simple-identity</url>
