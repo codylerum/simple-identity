@@ -7,19 +7,19 @@
 
 	<description>A very simple Identity Implementation for use with Apache DeltaSpikes Access Voter pattern</description>
 	<url>https://github.com/codylerum/simple-identity</url>
-	
+
 	<licenses>
 		<license>
 			<name>MIT</name>
 			<url>http://opensource.org/licenses/MIT</url>
 		</license>
 	</licenses>
-	
+
 	<scm>
 		<url>https://github.com/codylerum/simple-identity</url>
 		<connection>https://github.com/codylerum/simple-identity.git</connection>
 	</scm>
-	
+
 	<developers>
 		<developer>
 			<name>Cody Lerum</name>
@@ -29,25 +29,29 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.java>1.8</version.java>
+		<version.plugin.compiler>3.5.1</version.plugin.compiler>
+		<version.plugin.source>3.0.1</version.plugin.source>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>clearfly-releases</name>
+			<url>https://mvn.clearfly.net/artifactory/libs-release</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>clearfly-snapshots</name>
+			<url>https://mvn.clearfly.net/artifactory/libs-snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
-			<version>1.0-SP4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core</artifactId>
-			<version>1.1.10.Final</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -57,16 +61,16 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.4</version>
+				<version>${version.plugin.compiler}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${version.java}</source>
+					<target>${version.java}</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
+				<version>${version.plugin.source}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>

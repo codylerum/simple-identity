@@ -9,7 +9,6 @@ public interface Identity {
 
     public static final String RESPONSE_LOGIN_SUCCESS = "success";
     public static final String RESPONSE_LOGIN_FAILED = "failed";
-    public static final String RESPONSE_LOGIN_EXCEPTION = "exception";
 
     boolean isLoggedIn();
 
