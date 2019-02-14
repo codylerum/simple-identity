@@ -14,46 +14,35 @@ import javax.inject.Named;
 import com.outjected.identity.events.PostLoggedOutEvent;
 
 /**
- * 
  * @author Cody Lerum
- * 
  */
-@SessionScoped
-@Named("identity")
-public class IdentityImpl implements Serializable, Identity {
+@SessionScoped @Named("identity") public class IdentityImpl implements Serializable, Identity {
 
     private static final long serialVersionUID = 1L;
 
-    @Inject
-    @Any
-    private Instance<Authenticator> authenticators;
+    @Inject @Any private Instance<Authenticator> authenticators;
 
-    @Inject
-    private BeanManager beanManager;
+    @Inject private BeanManager beanManager;
 
     // Data
     private Class<? extends Authenticator> authenticatorClass;
     private IdentityUser user;
-    private Set<SimpleRole> roles = new HashSet<SimpleRole>();
-    private Set<SimplePermission> permissions = new HashSet<SimplePermission>();
+    private Set<SimpleRole> roles = new HashSet<>();
+    private Set<SimplePermission> permissions = new HashSet<>();
 
-    @Override
-    public boolean isLoggedIn() {
+    @Override public boolean isLoggedIn() {
         return user != null;
     }
 
-    @Override
-    public IdentityUser getUser() {
+    @Override public IdentityUser getUser() {
         return user;
     }
 
-    @Override
-    public void setAuthenticatorClass(Class<? extends Authenticator> authenticatorClass) {
+    @Override public void setAuthenticatorClass(Class<? extends Authenticator> authenticatorClass) {
         this.authenticatorClass = authenticatorClass;
     }
 
-    @Override
-    public String login() {
+    @Override public String login() {
         Authenticator auth = authenticators.select(authenticatorClass).get();
         auth.authenticate();
         user = auth.getUser();
@@ -65,8 +54,7 @@ public class IdentityImpl implements Serializable, Identity {
         }
     }
 
-    @Override
-    public void logout() {
+    @Override public void logout() {
         if (isLoggedIn()) {
             PostLoggedOutEvent postLoggedOutEvent = new PostLoggedOutEvent(user);
             user = null;
@@ -74,26 +62,25 @@ public class IdentityImpl implements Serializable, Identity {
         }
     }
 
-    @Override
-    public boolean hasRole(SimpleRole role) {
+    @Override public boolean hasRole(SimpleRole role) {
         return roles.contains(role);
     }
 
-    @Override
-    public void addRole(SimpleRole role) {
+    @Override public void addRole(SimpleRole role) {
         roles.add(role);
-        for (SimplePermission p : role.getPermissions()) {
-            permissions.add(p);
-        }
+        permissions.addAll(role.getPermissions());
     }
 
-    @Override
-    public boolean hasPermission(SimplePermission permission) {
+    @Override public boolean hasPermission(SimplePermission permission) {
         return permissions.contains(permission);
     }
 
-    @Override
-    public void addPermission(SimplePermission permission) {
+    @Override public void addPermission(SimplePermission permission) {
         permissions.add(permission);
+    }
+
+    @Override public void resetRolesAndPermissions() {
+        roles.clear();
+        permissions.clear();
     }
 }

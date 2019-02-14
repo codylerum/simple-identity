@@ -27,4 +27,6 @@ public interface Identity {
     boolean hasPermission(SimplePermission permission);
 
     void addPermission(SimplePermission permission);
+
+    void resetRolesAndPermissions();
 }
